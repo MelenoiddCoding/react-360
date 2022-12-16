@@ -1,7 +1,10 @@
 import React, { createContext, useState, useEffect } from "react";
-import Data from "Data2.js";
+import DataRenta from "Data2.js";
+import DataVenta from 'Data1.js'
 
 export const DataContext = createContext();
+export const DataVentaContext = createContext();
+export const DataRentaContext = createContext();
 
 export const DataProvider = (props) => {
 	const [productos, setProductos] = useState([]);
@@ -12,7 +15,15 @@ export const DataProvider = (props) => {
 	console.log(carrito)
 
   useEffect(() => {
-		const producto = Data.items 
+		const producto = DataRenta.items 
+		if(producto){
+			setProductos(producto)
+		}else{
+			setProductos([])
+		}
+	}, []);
+	useEffect(() => {
+		const producto = DataVenta.items 
 		if(producto){
 			setProductos(producto)
 		}else{

@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
-import Card from "images/img02.jpg";
-import { DataContext } from "context/DataProvider";
+ 	import { DataContext } from "context/DataProvider";
 
 export const Carrito = () => {
   const value = useContext(DataContext);
@@ -18,7 +17,7 @@ export const Carrito = () => {
 				item.cantidad === 1 ? item.cantidad = 1: item.cantidad -=1;
 			}
 			setCarrito([...carrito])
-		})
+		})	
 	}
 	const increase = id =>{
 		carrito.forEach(item =>{
